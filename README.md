@@ -127,7 +127,6 @@ brain-tumor-detection/
 │   ├── loss.png
 │   ├── confusion_matrix.png
 │   └── roc_curve.png
-├── src/
 ├── train.py                   ← Full training pipeline
 ├── predict.py                 ← GUI inference app
 ├── requirements.txt
