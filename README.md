@@ -138,34 +138,38 @@ brain-tumor-detection/
 Getting Started
 
 1. Clone the repository
-'''bash
+```bash
 git clone https://github.com/ritikyadav9818/Brain-Tumor-Detection.git
 cd brain-tumor-detection
-'''
+```
 
-2. Install dependencies
-'''bash
+3. Install dependencies
+```bash
 pip install -r requirements.txt
-'''
+```
 
-3. Download the dataset
+5. Download the dataset
 Download from [Kaggle](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset) and place images in:
 
+```text
 data/raw/Training/<class_name>/
 data/raw/Testing/<class_name>/
-
+```
 
 4. Train the model
-'''bash
+```bash
 python train.py
-'''
-Trained weights saved to `models/brain_tumor_multiclass.pth`
+```
+Trained weights saved to 
+``` text 
+models/brain_tumor_multiclass.pth
+```
 
 
 5. Run inference (GUI)
-'''bash
+```bash
 python predict.py
-'''
+```
 A file dialog opens — select any MRI image — model outputs predicted class and confidence score.
 
 
