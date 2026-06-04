@@ -143,12 +143,12 @@ git clone https://github.com/ritikyadav9818/Brain-Tumor-Detection.git
 cd brain-tumor-detection
 ```
 
-3. Install dependencies
+2. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Download the dataset
+3. Download the dataset
 Download from [Kaggle](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset) and place images in:
 
 ```text
