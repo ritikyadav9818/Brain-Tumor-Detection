@@ -7,13 +7,13 @@ import tkinter as tk
 from tkinter import filedialog
 import matplotlib.pyplot as plt
 
-# ================= SETTINGS =================
+# SETTINGS 
 MODEL_PATH = "models/brain_tumor_multiclass.pth"
 class_names = ['glioma', 'meningioma', 'notumor', 'pituitary']
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# ================= MODEL (MATCH TRAINING) =================
+# MODEL (MATCH TRAINING)
 model = models.resnet18(pretrained=False)
 
 num_ftrs = model.fc.in_features
@@ -30,7 +30,7 @@ model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 model.to(device)
 model.eval()
 
-# ================= TRANSFORM =================
+# TRANSFORM 
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -38,7 +38,7 @@ transform = transforms.Compose([
                          [0.229, 0.224, 0.225])
 ])
 
-# ================= FILE PICKER =================
+# FILE PICKER
 root = tk.Tk()
 root.withdraw() 
 
@@ -51,11 +51,11 @@ if not file_path:
     print("No file selected!")
     exit()
 
-# ================= LOAD IMAGE =================
+# LOAD IMAGE 
 image = Image.open(file_path).convert("RGB")
 input_tensor = transform(image).unsqueeze(0).to(device)
 
-# ================= PREDICTION =================
+# PREDICTION
 with torch.no_grad():
     outputs = model(input_tensor)
     probs = F.softmax(outputs, dim=1)
@@ -64,11 +64,11 @@ with torch.no_grad():
 pred_class = class_names[predicted.item()]
 conf = confidence.item() * 100
 
-# ================= OUTPUT =================
+# OUTPUT 
 print(f"\nPrediction: {pred_class}")
 print(f"Confidence: {conf:.2f}%")
 
-# ================= SHOW IMAGE =================
+# SHOW IMAGE 
 plt.imshow(image)
 plt.title(f"{pred_class} ({conf:.2f}%)")
 plt.axis("off")
