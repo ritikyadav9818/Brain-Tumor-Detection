@@ -1,21 +1,21 @@
-Brain Tumor Detection Using MRI Scans
+# Brain Tumor Detection Using MRI Scans
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
 ![Accuracy](https://img.shields.io/badge/Validation%20Accuracy-95.88%25-green)
-![CUDA](https://img.shields.io/badge/CUDA-Supported-brightgreen)
+![CUDA](https://img.shields.io/badge/CUDA-Supported-orange)
 
 Deep learning-based multi-class brain tumor classification from MRI scans using ResNet-18 transfer learning — 95.88% validation accuracy across 4 tumor classes.
 
 
-Overview
+## Overview
 
 This project implements a convolutional neural network (CNN) pipeline to classify brain MRI scans into four categories: Glioma, Meningioma, Pituitary Tumor, and No Tumor. It uses transfer learning on a pretrained ResNet-18 backbone, trained on approximately 7,000 labeled MRI images from the Kaggle Brain MRI Dataset.
 
 A Tkinter-based GUI (predict.py) allows real-time inference — upload any MRI image and get an instant prediction with confidence score.
 
 
-Results
+## Results
 
 | Metric | Value |
 |--------|-------|
@@ -24,7 +24,7 @@ Results
 | Training Loss (final) | 0.037 |
 | Epochs | 10 |
 
-ROC-AUC Scores
+### ROC-AUC Scores
 | Class | AUC |
 |-------|-----|
 | Pituitary | 1.00 |
@@ -32,13 +32,13 @@ ROC-AUC Scores
 | Meningioma | 0.99 |
 | Glioma | 0.97 |
 
-Confusion Matrix Highlights
+### Confusion Matrix Highlights
 - No Tumor: 400/400 — perfect classification
 - Pituitary: 400/400 — perfect classification
 - Meningioma: 386/400 — 96.5% accuracy
 - Glioma: 327/400 — 81.8% accuracy (minor confusion with Meningioma)
 
-Training Curves
+### Training Curves
 
 | Accuracy | Loss |
 |----------|------|
@@ -50,9 +50,8 @@ Training Curves
 |-----------|-----------------|
 | ![ROC](results/roc_curve.png) | ![CM](results/confusion_matrix.png) |
 
----
 
-Dataset
+## Dataset
 
 **Source:** [Kaggle Brain MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
 
@@ -68,7 +67,7 @@ Dataset
 
 
 
-Model Architecture
+## Model Architecture
 
 Base: ResNet-18 pretrained on ImageNet  
 Modified FC head:
@@ -89,7 +88,7 @@ Why ResNet-18?
 
 
 
-Training Configuration
+## Training Configuration
 
 | Parameter | Value |
 |-----------|-------|
@@ -108,7 +107,7 @@ Training Configuration
 
 
 
-Project Structure
+## Project Structure
 
 
 brain-tumor-detection/
@@ -135,7 +134,7 @@ brain-tumor-detection/
 
 
 
-Getting Started
+## Getting Started
 
 1. Clone the repository
 ```bash
@@ -174,7 +173,7 @@ A file dialog opens — select any MRI image — model outputs predicted class a
 
 
 
-Requirements
+## Requirements
 
 
 torch
@@ -193,7 +192,7 @@ pip install torch torchvision matplotlib numpy scikit-learn seaborn Pillow
 
 
 
-Sample Prediction
+## Sample Prediction
 
 
 Selected: mri_scan_001.jpg
@@ -203,7 +202,7 @@ Confidence : 94.73%
 
 
 
-Future Work
+## Future Work
 
 - Grad-CAM visualization to highlight tumor regions
 - Deploy as Flask web application
@@ -213,20 +212,20 @@ Future Work
 
 
 
-Authors
+## Authors
 
-Ritik Yadav 
-
-
+Ritik Yadav
 
 
-License
+
+
+## License
 
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
 
 
 
-Acknowledgements
+## Acknowledgements
 
 - Dataset: [Kaggle Brain MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset) by Masoud Nickparvar
 - Architecture: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) — He et al., 2016
