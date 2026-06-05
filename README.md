@@ -5,14 +5,14 @@
 ![Accuracy](https://img.shields.io/badge/Validation%20Accuracy-95.88%25-green)
 ![CUDA](https://img.shields.io/badge/CUDA-Supported-orange)
 
-Deep learning-based multi-class brain tumor classification from MRI scans using ResNet-18 transfer learning — 95.88% validation accuracy across 4 tumor classes.
+Deep learning-based multi-class brain tumor classification from MRI scans using ResNet-18 transfer learning — **95.88% validation accuracy** across 4 tumor classes.
 
 
 ## Overview
 
-This project implements a convolutional neural network (CNN) pipeline to classify brain MRI scans into four categories: Glioma, Meningioma, Pituitary Tumor, and No Tumor. It uses transfer learning on a pretrained ResNet-18 backbone, trained on approximately 7,000 labeled MRI images from the Kaggle Brain MRI Dataset.
+This project implements a convolutional neural network (CNN) pipeline to classify brain MRI scans into four categories: **Glioma, Meningioma, Pituitary Tumor, and No Tumor**. It uses transfer learning on a pretrained ResNet-18 backbone, trained on approximately 7,000 labeled MRI images from the Kaggle Brain MRI Dataset.
 
-A Tkinter-based GUI (predict.py) allows real-time inference — upload any MRI image and get an instant prediction with confidence score.
+A Tkinter-based GUI (`predict.py`) allows real-time inference — upload any MRI image and get an instant prediction with confidence score.
 
 
 ## Results
@@ -33,10 +33,10 @@ A Tkinter-based GUI (predict.py) allows real-time inference — upload any MRI i
 | Glioma | 0.97 |
 
 ### Confusion Matrix Highlights
-- No Tumor: 400/400 — perfect classification
-- Pituitary: 400/400 — perfect classification
-- Meningioma: 386/400 — 96.5% accuracy
-- Glioma: 327/400 — 81.8% accuracy (minor confusion with Meningioma)
+- **No Tumor**: 400/400 — perfect classification
+- **Pituitary**: 400/400 — perfect classification
+- **Meningioma**: 386/400 — 96.5% accuracy
+- **Glioma**: 327/400 — 81.8% accuracy (minor confusion with Meningioma)
 
 ### Training Curves
 
@@ -69,18 +69,18 @@ A Tkinter-based GUI (predict.py) allows real-time inference — upload any MRI i
 
 ## Model Architecture
 
-Base: ResNet-18 pretrained on ImageNet  
-Modified FC head:
-
+**Base:** ResNet-18 pretrained on ImageNet  
+**Modified FC head:**
+```
 ResNet-18 backbone (frozen feature extractor)
     └── Dropout(0.5)
     └── Linear(512 → 512)
     └── ReLU()
     └── Dropout(0.3)
     └── Linear(512 → 4)
+```
 
-
-Why ResNet-18?
+**Why ResNet-18?**
 - Residual connections prevent vanishing gradients
 - Lightweight — fast training on limited hardware
 - Pretrained ImageNet weights transfer well to medical imaging
@@ -109,7 +109,7 @@ Why ResNet-18?
 
 ## Project Structure
 
-
+```
 brain-tumor-detection/
 ├── data/
 │   └── raw/
@@ -129,33 +129,34 @@ brain-tumor-detection/
 ├── train.py                   ← Full training pipeline
 ├── predict.py                 ← GUI inference app
 ├── requirements.txt
-└── README.md
-
+├── README.md
+└── LICENSE
+```
 
 
 
 ## Getting Started
 
-1. Clone the repository
+### 1. Clone the repository
 ```bash
 git clone https://github.com/ritikyadav9818/Brain-Tumor-Detection.git
 cd brain-tumor-detection
 ```
 
-2. Install dependencies
+### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Download the dataset
+### 3. Download the dataset
 Download from [Kaggle](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset) and place images in:
 
-```text
+``` text
 data/raw/Training/<class_name>/
 data/raw/Testing/<class_name>/
 ```
 
-4. Train the model
+### 4. Train the model
 ```bash
 python train.py
 ```
@@ -165,7 +166,7 @@ models/brain_tumor_multiclass.pth
 ```
 
 
-5. Run inference (GUI)
+### 5. Run inference (GUI)
 ```bash
 python predict.py
 ```
@@ -175,7 +176,7 @@ A file dialog opens — select any MRI image — model outputs predicted class a
 
 ## Requirements
 
-
+```
 torch
 torchvision
 matplotlib
@@ -183,23 +184,12 @@ numpy
 scikit-learn
 seaborn
 Pillow
-
+```
 
 Or install all at once:
-bash
+```bash
 pip install torch torchvision matplotlib numpy scikit-learn seaborn Pillow
-
-
-
-
-## Sample Prediction
-
-
-Selected: mri_scan_001.jpg
-Prediction : glioma
-Confidence : 94.73%
-
-
+```
 
 
 ## Future Work
@@ -214,7 +204,7 @@ Confidence : 94.73%
 
 ## Authors
 
-Ritik Yadav
+**Ritik Yadav**
 
 
 
